@@ -1,6 +1,8 @@
 # What versions are these web services running?
 
-What-runs-where is a service that aggregates and organizes the release versions of any number of web services which choose to publish it. It is useful when you have several testing&prod environments where several versions of your web services are running and you want to have a quick overview of what runs where.
+What-runs-where is a service that iparses and aggregates the version strings of any number of web services which choose to publish their version. 
+It is useful when you have several testing&prod environments where several versions of your web services are running and you want to have a quick 
+overview of what runs where.
 
 ## Building
 
