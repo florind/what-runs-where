@@ -3,7 +3,7 @@
 What-runs-where is a service that iparses and aggregates the version strings of any number of web services which choose to publish their version. 
 It is useful when you have several testing&prod environments where several versions of your web services are running and you want to have a quick 
 overview of what runs where.
-Live example deployed on Heroku: http://vast-brook-8589.herokuapp.com/
+Check-out the <a href="http://vast-brook-8589.herokuapp.com/">live</a> example running on Heroku (see also hte Heroku section). 
 
 ## Building
 
@@ -107,7 +107,7 @@ WrW also publishes a JSON API, reachable under the path /api/services. Example:
 
 ##Heroku
 WrW is Heroku-friendly too. The instance config file is https://github.com/florind/what-runs-where/blob/master/config-heroku.properties 
-and runs <a href="http://vast-brook-8589.herokuapp.com/">here</a>.
+and runs <a href="http://vast-brook-8589.herokuapp.com/">here</a>. Note that the WrW server DNS is hard-coded in the config file and alas, not dynamically compiled.
 
 ## Built with
 
