@@ -2,7 +2,7 @@
 
 What-runs-where is a service that aggregates and organizes the release versions of any number of web services which choose to publish it. It is useful when you have several testing&prod environments where several versions of your web services are running and you want to have a quick overview of what runs where.
 
-## Usage
+## Building
 
 Install Lein from http://leiningen.org<br/>
 Build and package the binary with:
@@ -45,8 +45,6 @@ Cool\ Service= {
 	]
 }
 </pre>
-The configuration needs to be inlined in the properties file. See <https://github.com/florind/what-runs-where/blob/master/test/what_runs_where/test/config-test.properties> for how inlining works with the above example. 
-
 Cool\ Service is the group label
 :servers defines a list of services for which a version can be extracted.<br/>
 :parsers is a list of version parsers since a web service may publish more than its own version, possibly showing versions of submodules and/or dependent services.<br/>
@@ -54,7 +52,8 @@ Cool\ Service is the group label
 :regexp the regex to parse the said version string<br/>
 :name the human readable name of the service.
 
-<br/><br/>
+The configuration needs to be inlined in the properties file. See <https://github.com/florind/what-runs-where/blob/master/test/what_runs_where/test/config-test.properties> for how inlining works with the above example. 
+
 Here's a second example: WrW itself publishes its own version along with the Clojure version that powers it. The version URL is http://localhost:8000/version and the response body is:
 <pre>
 {
