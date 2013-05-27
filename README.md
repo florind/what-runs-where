@@ -84,7 +84,25 @@ Notice the two parsers that are applied against the same /version path and which
 Again, this configuration is inlined in the same <https://github.com/florind/what-runs-where/blob/master/test/what_runs_where/test/config-test.properties> example.
 
 
-# Built with
+##JSON API
+WrW also publishes a JSON API, reachable under the path /api/services. Example:
+<pre>
+[
+	{
+		http://localhost:8000: {
+			Clojure: "1.5.1",
+			WrW: "0.1.0"
+		}
+	},
+		{
+			http://stackoverflow.com: {
+			Stackoverflow: "rev 2013.5.24.702"
+		}
+	}
+]
+</pre>
+
+## Built with
 
 [<img src="http://clojure.org/space/showimage/clojure-icon.gif">](http://clojure.org) [<img src="http://twitter.github.com/bootstrap/assets/img/bs-docs-responsive-illustrations.png">] (http://twitter.github.com/bootstrap/)
 
