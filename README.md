@@ -2,8 +2,8 @@
 
 What-runs-where is a service that iparses and aggregates the version strings of any number of web services which choose to publish their version. 
 It is useful when you have several testing&prod environments where several versions of your web services are running and you want to have a quick 
-overview of what runs where.
-Check-out the <a href="http://vast-brook-8589.herokuapp.com/">live</a> example running on Heroku (see also hte Heroku section). 
+overview of what runs where.<br/>
+Check-out <a href="http://vast-brook-8589.herokuapp.com/">thisl live example</a> running on Heroku (see also hte Heroku section). 
 
 ## Building
 
