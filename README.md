@@ -16,17 +16,25 @@ $ lein uberjar
 WrW is itself a web service. It publishes its version aggregations as a web service presented both as a rich HTML page or a JSON API. To start the server: 
 
 <pre>
-$ java -jar what-runs-where-0.1.0-SNAPSHOT-standalone.jar
+$ java -jar what-runs-where-0.1.0-SNAPSHOT-standalone.jar -c test/what_runs_where/test/config-test.properties
 </pre>
 
-This command starts a Jetty webserver that runs at port 8000. Use http://localhost:8000 to reach the service webpage. Use http://localhost:8000/api/services for the JSON API.
+This command starts a Jetty webserver that runs on localhost at port 8000. Use http://localhost:8000 to reach the service webpage. Use http://localhost:8000/api/services for the JSON API.<br/>
+There are command-line options too:
+<pre>
+ Switches  Default            Desc               
+ --------  -------            ----               
+ -c        config.properties  Configuration file 
+ -p        8000               Port               
+</pre>
+The default config.properties is not supplied, you'll have to build it as described below.
 
-## Configuration
+## Configuration and examples
 WrW configures itself from a properties file where services are defined. The services are grouped conveniently behind labels allowing clustering of environments e.g. staging and production. 
+
 Note the inherent constraints of the Java Properties file.
 <pre>  
-Cool\ Service=
-{
+Cool\ Service= {
     :servers ["http://stackoverflow.com"], 
     :parsers [
 		{
@@ -45,6 +53,36 @@ Cool\ Service is the group label
 :path is the path to the page whose body contains the version string<br/>
 :regexp the regex to parse the said version string<br/>
 :name the human readable name of the service.
+
+<br/><br/>
+Here's a second example: WrW itself publishes its own version along with the Clojure version that powers it. The version URL is http://localhost:8000/version and the response body is:
+<pre>
+{
+	"version": "0.1.0", 
+	"clojure": "1.5.1"
+}
+</pre>
+
+In order to parse both versions and show them on the WrW dashboard we'll use the following configuration:
+<pre>
+What\ Runs\ Where\ Local= {
+	:servers ["http://localhost:8000"], 
+	:parsers [
+		{
+			:path "/version", 
+			:regexp #"\\"version\\": \\"([\\w\\d.]*)", 
+			:name "WrW"
+		}
+		{
+			:path "/version", 
+			:regexp #"\\"clojure\\": \\"([\\w\\d.]*)", 
+			:name "Clojure"
+		}
+	]
+}
+</pre>
+Notice the two parsers that are applied against the same /version path and which pick apart the WrW and clojure versions respectively.<br/>
+Again, this configuration is inlined in the same <https://github.com/florind/what-runs-where/blob/master/test/what_runs_where/test/config-test.properties> example.
 
 
 # Built with
