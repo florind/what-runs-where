@@ -39,7 +39,7 @@
 (defn footer []
   (html [:div#footer
             [:div.container
-             [:p.muted.credit (html "&copy; 2012&nbsp;&nbsp;&nbsp;" [:a {:href "/help"} "Help"])]]]
+             [:p.muted.credit (html "&copy; 2013&nbsp;&nbsp;&nbsp;" [:a {:href "/help"} "Help"])]]]
         (include-js "http://code.jquery.com/jquery-latest.js")
         (include-js "/js/bootstrap.js")))
 
