@@ -31,25 +31,25 @@ Cool\ Service=
     :parsers [
 		{
 			:path "/",
-			:regexp #"&lt;div id=\\\\"svnrev\\\\">\\s*(.*)\\\\s*&lt;/div&gt;", 
+			:regexp #"&lt;div id=\\"svnrev\\">\\s*(.*)\\s*&lt;/div&gt;", 
 			:name "Stackoverflow"
 		}
 	]
 }
 </pre>
-The configuration needs to be inlined in the properties file. See <https://github.com/florind/what-runs-where/test/what_runs_where/test/config-test.properties> for how inlining works with the above example. 
+The configuration needs to be inlined in the properties file. See <https://github.com/florind/what-runs-where/blob/master/test/what_runs_where/test/config-test.properties> for how inlining works with the above example. 
 
 Cool\ Service is the group label
 :servers defines a list of services for which a version can be extracted.<br/>
 :parsers is a list of version parsers since a web service may publish more than its own version, possibly showing versions of submodules and/or dependent services.<br/>
 :path is the path to the page whose body contains the version string<br/>
-:regexp the regex to parse the said version string
+:regexp the regex to parse the said version string<br/>
 :name the human readable name of the service.
 
 
 # Built with
 
-![Clojure](http://clojure.org/space/showimage/clojure-icon.gif "http://clojure.org") ![Bootstrap](http://twitter.github.com/bootstrap/assets/img/bs-docs-responsive-illustrations.png "http://twitter.github.com/bootstrap/")
+[<img src="http://clojure.org/space/showimage/clojure-icon.gif">](http://clojure.org) [<img src="http://twitter.github.com/bootstrap/assets/img/bs-docs-responsive-illustrations.png">] (http://twitter.github.com/bootstrap/)
 
 ## License
 
