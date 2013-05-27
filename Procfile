@@ -1,1 +1,1 @@
-web: lein run -m what-runs-where.handler -c test/what_runs_where/test/config-test.properties -p 5000
+web: lein run -m what-runs-where.handler -c test/what_runs_where/test/config-test.properties -p 80
