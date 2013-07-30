@@ -14,8 +14,8 @@ Example return {:backend \"1.1\"}"
           req-time (get response :request-time),
         ver-str (re-find regex body)]
       (case status
-        200 (if (nil? ver-str) {service-key :garble} {service-key (str (last ver-str) " " req-time " ms")})
-        {service-key (str "error: server status " (str status " " req-time " ms"))}))
+        200 (if (nil? ver-str) {service-key :garble} {service-key (last ver-str)})
+        {service-key (str "error: server status " status)}))
     (catch Exception e {service-key (str "error: " e)})))
 
 (defn services-ver-map
