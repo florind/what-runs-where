@@ -11,6 +11,7 @@ Build and package the binary with:
 
 <pre>
 $ lein clean
+$ lein test
 $ lein uberjar
 </pre>
 
