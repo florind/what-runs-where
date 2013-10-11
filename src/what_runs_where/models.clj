@@ -13,8 +13,9 @@ Example return {:backend \"1.1\"}"
           body (get response :body),
           req-time (get response :request-time),
         ver-str (re-find regex body)]
+;    (println ver-str)
       (case status
-        200 (if (nil? ver-str) {service-key :garble} {service-key (last ver-str)})
+        200 (if (nil? ver-str) {service-key "error: garble"} {service-key (last ver-str)})
         {service-key (str "error: server status " status)}))
     (catch Exception e {service-key (str "error: " e)})))
 
@@ -32,7 +33,7 @@ Example return {:backend \"1.1\"}"
   [srv-conf]
   (let [srv-list (:servers srv-conf)
         parsers (:parsers srv-conf)]
-  (http/with-connection-pool {:threads (count srv-list)}
+  (http/with-connection-pool {:threads (count srv-list) :insecure? true}
 		;The anonymous function passed to services-ver-map will call service-ver on the well-formed version URL that will be passed in its single argument.
 		;This URL is inside the srv-list that is passed as the last argument of services-ver-map
 		;We use apply in order to "slip inside" the argument list, as merge-with takes individual arguments and not a seq as returned by the map function.

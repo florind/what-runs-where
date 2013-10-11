@@ -8,6 +8,8 @@
             [clojure.tools.cli :as c])
   (:gen-class))
 
+(defmacro dbg[x] `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))
+
 (defn load-config
 		"loads the config file in a var called server-map. This var is used further by the routing logic, rebound via -main or via tests (where a test config file can be loaded)
 		The config file format is:

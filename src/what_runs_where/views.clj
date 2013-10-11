@@ -9,6 +9,7 @@
         srv-html-name (str "<a href=" srv-name " style='color: white;white-space:pre-wrap'>"
                              (if (> (count srv-name) 24) (str (subs srv-name 0 23) "<br/>" (subs srv-name 23)) srv-name) "</a>")
         stats (vals (val status))]
+;    (println stats)
     (html
 	    [:div {:class "col-lg-2 col-sm-4 col-12"}
 	     [:div.well.well-small
